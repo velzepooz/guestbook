@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require("dotenv")
 const reviewRoutes = require('./routes/review');
 const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 9000;
+dotenv.config()
 
 app.use(cors());
 
@@ -17,7 +19,7 @@ app.use('/review', reviewRoutes);
 
 const start = async () => {
   try {
-    await mongoose.connect('mongodb+srv://gleb:Q2V5yJL4wksL7VT@cluster0.sn2ma.mongodb.net/reviews', {
+    await mongoose.connect(process.env.MONGO_DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,

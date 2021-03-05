@@ -34,7 +34,7 @@ export const PageHeadingShapes = {
 export const NavigationLinkShapes = {
   path: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  isExact: PropTypes.string.isRequired,
+  isExact: PropTypes.bool.isRequired,
 };
 
 export const NavigationShapes = {
