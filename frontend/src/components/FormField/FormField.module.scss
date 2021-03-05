@@ -1,0 +1,49 @@
+.label {
+  font-size: 3.8vw;
+
+  @media (min-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 0.8vw;
+  }
+}
+
+.input {
+  width: 89vw;
+  height: 10vw;
+  padding: 0 4vw;
+
+  font-family: "Heebo", Arial, Helvetica, sans-serif;
+  font-size: 3.8vw;
+  font-weight: 400;
+  color: #3f414e;
+
+  border: 3px solid #e0e0e0;
+
+  margin: 1vw 0 3vw;
+
+  transition: border-color 300ms ease;
+
+  &::placeholder {
+    font-size: 3.8vw;
+
+    @media (min-width: 1000px) {
+      font-size: 0.8vw;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    width: 18vw;
+    height: 3vw;
+
+    font-size: 0.8vw;
+
+    padding: 0 1.2vw;
+    margin: 0.5vw 0;
+  }
+}
+
+.inputError {
+  border-color: #d67f7f;
+}

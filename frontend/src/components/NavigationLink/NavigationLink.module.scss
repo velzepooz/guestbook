@@ -1,0 +1,21 @@
+.navigationLink {
+  font-family: "Heebo", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: #000 !important;
+
+  &:visited {
+    color: #000 !important;
+  }
+
+  &:active {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  &_active {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+}

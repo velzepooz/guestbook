@@ -1,0 +1,29 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 13rem;
+  height: 2.93rem;
+
+  background: #ff6464;
+  border-radius: 2px;
+
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #fff;
+
+  transition: opacity 300ms ease;
+
+  @media (min-width: 1000px) {
+    font-size: 1rem;
+
+    width: 8rem;
+    height: 2.1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}

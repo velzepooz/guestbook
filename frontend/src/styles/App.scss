@@ -1,0 +1,20 @@
+@import "./utils/reset";
+@import "./utils/fonts";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Heebo", Arial, Helvetica, sans-serif;
+  font-size: 4.2vw;
+  font-weight: 400;
+  color: #21243d;
+
+  background: #fff;
+
+  @media (min-width: 1000px) {
+    font-size: 1.3vw;
+  }
+}

@@ -1,0 +1,31 @@
+.container {
+  font-size: 1.25rem;
+
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 1.06rem;
+
+  @media (min-width: 1000px) {
+    font-size: 1.25rem;
+
+    margin-bottom: 0.93rem;
+  }
+}
+
+.date {
+}
+
+.name {
+  color: #8695a4;
+}
+
+.separator {
+  display: inline-block;
+  width: 0.06rem;
+  height: 1.31rem;
+
+  background: #000;
+
+  margin: 0 1.25rem;
+}

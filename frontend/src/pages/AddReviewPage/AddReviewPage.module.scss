@@ -1,0 +1,40 @@
+.inputsGroup {
+  @media (min-width: 1000px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+.formErrorMessage {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: red;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity 300ms ease;
+
+  @media (min-width: 1000px) {
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+}
+
+.formErrorMessageShow {
+  visibility: visible;
+  opacity: 1;
+}

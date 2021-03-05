@@ -1,0 +1,39 @@
+.label {
+  width: 100%;
+}
+
+.textarea {
+  width: 89vw;
+  padding: 1vw 4vw;
+
+  font-family: "Heebo", Arial, Helvetica, sans-serif;
+  font-size: 3.8vw;
+  font-weight: 400;
+  color: #3f414e;
+
+  border: 3px solid #e0e0e0;
+
+  margin-bottom: 3vw;
+
+  transition: border-color 300ms ease;
+
+  &::placeholder {
+    font-size: 3.8vw;
+
+    @media (min-width: 1000px) {
+      font-size: 0.8vw;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 0.8vw;
+    width: 100%;
+
+    padding: 1vw 1.2vw;
+    margin-bottom: 0.5vw;
+  }
+}
+
+.textareaError {
+  border-color: #d67f7f;
+}
