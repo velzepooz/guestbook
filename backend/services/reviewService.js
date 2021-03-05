@@ -7,9 +7,9 @@ class ReviewService {
 		try {
 			const reviews = await this.reviewRepository.getAll();
 
-			return reviews;
+			return reviews || [];
 		} catch (e) {
-			return new ReviewServiceError(
+			throw new ReviewServiceError(
 				'Failed to create review record',
 				e,
 			);
@@ -17,15 +17,32 @@ class ReviewService {
 	}
 
 	async addReview(review) {
-		//	TODO: validate review
+		if (!this.isValidReview(review)) {
+			throw new ReviewServiceError('Invalid review fields', review);
+		}
+
 		try {
-			return await this.reviewRepository.create(review);
+			const preparedReview = this.prepareReviewBeforeAdd(review);
+
+			return await this.reviewRepository.create(preparedReview);
 		} catch (e) {
-			return new ReviewServiceError(
+			throw new ReviewServiceError(
 				'Failed to create review record',
 				e,
 			);
 		}
+	}
+
+	isValidReview(review) {
+		return review.title && review.message;
+	}
+
+	prepareReviewBeforeAdd(review) {
+		return {
+			title: review.title,
+			author: review.author || 'Visitor',
+			message: review.message,
+		};
 	}
 }
 

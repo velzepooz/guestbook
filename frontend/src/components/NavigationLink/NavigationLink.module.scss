@@ -1,14 +1,14 @@
 .navigationLink {
   font-family: "Heebo", Arial, Helvetica, sans-serif;
   font-weight: 300;
-  color: #000 !important;
+  color: rgba(0, 0, 0, 0.5) !important;
 
   &:visited {
-    color: #000 !important;
+    color: rgba(0, 0, 0, 0.5) !important;
   }
 
   &:active {
-    color: rgba(0, 0, 0, 0.5) !important;
+    color: #000 !important;
   }
 
   &:hover {
@@ -16,6 +16,7 @@
   }
 
   &_active {
-    color: rgba(0, 0, 0, 0.5) !important;
+    color: #000 !important;
+    border-bottom: 1px solid #000;
   }
 }

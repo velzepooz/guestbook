@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 const reviewRoutes = require('./routes/review');
 const cors = require('cors');
 
 const app = express();
+dotenv.config();
 const port = process.env.PORT || 9000;
-dotenv.config()
 
 app.use(cors());
 

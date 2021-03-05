@@ -2,10 +2,13 @@
 /build
 
 # misc
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.development
+.env.production
 
 # Generated
 node_modules

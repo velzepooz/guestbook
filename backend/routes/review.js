@@ -12,7 +12,6 @@ const reviewController = new ReviewController(reviewService);
 
 router.get(
 	'/',
-	bodyParser.json(),
 	reviewController.getReviews.bind(reviewController),
 );
 

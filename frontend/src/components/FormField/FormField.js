@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import styles from './FormField.module.scss';
 import { FormInputShapes } from '../../Shapes/Shapes';
 
-export const FormField = ({ attributes, error, onFocus }) => {
+export const FormField = ({ attributes, onFocus, error = false }) => {
   return (
     <label className={styles.label} htmlFor={attributes.id}>
       {attributes.label}

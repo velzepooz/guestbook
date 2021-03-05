@@ -4,6 +4,7 @@ class ReviewController {
 	}
 
 	async getReviews(req, res) {
+		// TODO: Add proper data
 		res.set('Access-Control-Allow-Origin', '*');
 		let result = null;
 
@@ -19,20 +20,22 @@ class ReviewController {
 				result = {
 					status: false,
 					message: [],
-				}
+				};
 			}
 		} catch (e) {
-			throw new ReviewControllerError(
-				'Failed to create review record',
-				e,
-			);
+			result = {
+				status: false,
+				message: [],
+			};
+
+			console.log(e);
 		}
 
-		return res.status(200).json(result);
+		res.status(200).json(result);
 	}
 
 	async addReview(req, res) {
-		let result = null
+		let result = null;
 
 		try {
 			const isCreated = await this.reviewService.addReview(req.body);
@@ -40,36 +43,19 @@ class ReviewController {
 			if (isCreated) {
 				result = {
 					status: isCreated,
-					message: 'Created successful',
-				}
-			} else {
-				result = {
-					status: isCreated,
-					message: 'Review is not created',
+					message: 'Review is created',
 				}
 			}
 		} catch (e) {
-			// Test
 			result = {
 				status: false,
 				message: 'Failed to create review',
-			}
+			};
 
-			throw new ReviewControllerError(
-				'Failed to create review record',
-				e,
-			);
+			console.log(e);
 		}
 
-		return res.status(200).json(result);
-	}
-}
-
-class ReviewControllerError extends Error {
-	constructor(message, cause) {
-		super(message);
-		this.cause = cause;
-		this.name = 'Review Controller Error';
+		res.status(200).json(result);
 	}
 }
 

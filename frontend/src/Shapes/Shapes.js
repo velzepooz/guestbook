@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 
 export const ReviewHeadingShapes = {
   title: PropTypes.string.isRequired,
@@ -22,9 +22,7 @@ export const ReviewShapes = {
 };
 
 export const ReviewsShapes = {
-  reviews: PropTypes.arrayOf({
-    ReviewShapes,
-  }).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape(ReviewShapes)).isRequired,
 };
 
 export const PageHeadingShapes = {
@@ -61,31 +59,28 @@ const inputAttributesShape = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  minLength: PropTypes.string.isRequired,
+  minLength: PropTypes.number.isRequired,
   placeholder: PropTypes.string.isRequired,
-  isRequired: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
 };
 
 const textareaAttributesShape = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  minLength: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  isRequired: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool.isRequired,
 };
 
 export const FormTextareaShapes = {
-  attributes: textareaAttributesShape,
+  attributes: shape(textareaAttributesShape),
   error: PropTypes.bool.isRequired,
   onFocus: PropTypes.func.isRequired,
 };
 
 export const FormInputShapes = {
-  attributes: inputAttributesShape,
-  error: PropTypes.bool.isRequired,
+  attributes: shape(inputAttributesShape),
+  error: PropTypes.bool,
   onFocus: PropTypes.func.isRequired,
 };
 

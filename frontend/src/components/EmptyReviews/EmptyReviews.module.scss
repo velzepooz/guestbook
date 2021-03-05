@@ -1,0 +1,25 @@
+.empty {
+  text-align: center;
+
+  @media (min-width: 1000px) {
+    text-align: left;
+  }
+}
+
+.link {
+  color: #2eaadc !important;
+
+  transition: opacity 300ms ease;
+
+  &:visited {
+    color: #2eaadc !important;
+  }
+
+  &:active {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

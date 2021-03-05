@@ -1,0 +1,25 @@
+{
+  "name": "guestbook",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "build:react": "npm run build --prefix frontend",
+    "dev:front": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
+    "dev": "npm run build:react && nodemon ./backend/app.js",
+    "start": "npm run build:react && node ./backend/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/velzepooz/guestbook.git"
+  },
+  "author": "velzepooz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/velzepooz/guestbook/issues"
+  },
+  "homepage": "https://github.com/velzepooz/guestbook#readme",
+  "devDependencies": {
+    "concurrently": "^6.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
