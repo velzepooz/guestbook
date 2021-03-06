@@ -11,14 +11,14 @@ const reviewService = new ReviewService(reviewRepository);
 const reviewController = new ReviewController(reviewService);
 
 router.get(
-	'/',
-	reviewController.getReviews.bind(reviewController),
+  '/',
+  reviewController.getReviews.bind(reviewController),
 );
 
 router.post(
-	'/add',
-	bodyParser.json(),
-	reviewController.addReview.bind(reviewController),
+  '/add',
+  bodyParser.json(),
+  reviewController.addReview.bind(reviewController),
 );
 
 module.exports = router;
