@@ -12,6 +12,7 @@ class ReviewRepository {
     }
 
     try {
+      // eslint-disable-next-line new-cap
       const reviewRecord = new this.model(review);
 
       await reviewRecord.save();
