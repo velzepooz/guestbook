@@ -12,7 +12,14 @@ const port = process.env.PORT || 9000;
 
 app.use(express.static(`${__dirname}/www`));
 
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "script-src": ["'self'", "localhost", "'unsafe-inline'", "'unsafe-eval'"],
+    },
+  })
+);
 app.use(compression());
 
 app.use('/api/review', reviewRoutes);
