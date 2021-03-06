@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "build:react": "npm run build --prefix frontend && mv ./frontend/build ./backend/www",
     "install:backend": "cd backend && npm install",
     "install:frontend": "cd frontend && npm install",
     "postinstall": "npm run install:backend && npm run install:frontend && npm run build:react",
-    "build:react": "npm run build --prefix frontend && mv ./frontend/build ./backend/www",
     "dev:front": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
     "dev": "rm -rf ./backend/www && npm run build:react && npm run dev --prefix backend",
     "start": "npm start --prefix backend"
