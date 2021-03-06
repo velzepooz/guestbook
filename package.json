@@ -6,7 +6,7 @@
     "build:react": "npm run build --prefix frontend && mv ./frontend/build ./backend/www",
     "dev:front": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
     "dev": "rm -rf ./backend/www && npm run build:react && npm run dev --prefix backend",
-    "start": "npm run build:react && node ./backend/app.js"
+    "start": "npm run build:react && npm i --prefix backend && node ./backend/app.js"
   },
   "repository": {
     "type": "git",
