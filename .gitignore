@@ -1,6 +1,5 @@
 # production
 /build
-/www
 
 # misc
 .env
