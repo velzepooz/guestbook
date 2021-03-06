@@ -4,8 +4,6 @@ class ReviewController {
 	}
 
 	async getReviews(req, res) {
-		// TODO: Add proper data
-		res.set('Access-Control-Allow-Origin', '*');
 		let result = null;
 
 		try {

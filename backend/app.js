@@ -1,29 +1,29 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require("dotenv");
+const path = require('path');
+const dotenv = require('dotenv');
+const helmet = require('helmet');
+const compression = require('compression');
 const reviewRoutes = require('./routes/review');
-const cors = require('cors');
+const initDataBase = require('./db/index');
 
-const app = express();
 dotenv.config();
+const app = express();
 const port = process.env.PORT || 9000;
 
-app.use(cors());
+app.use(express.static(`${__dirname}/www`));
 
-// TODO: Delete
-app.get('/', (req, res) => {
-  res.json({ status: 'ok' });
-})
+app.use(helmet());
+app.use(compression());
 
-app.use('/review', reviewRoutes);
+app.use('/api/review', reviewRoutes);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/www/index.html`));
+});
+
 
 const start = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_DB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    });
+    await initDataBase(process.env.MONGO_DB_URL);
 
     app.listen(port, () => {
       // eslint-disable-next-line no-console

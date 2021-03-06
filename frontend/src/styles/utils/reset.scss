@@ -62,9 +62,12 @@ button {
 
 input {
   border: none;
+  box-shadow: none;
+  -webkit-appearance: none;
 }
 
 textarea {
   border: none;
   resize: none;
+  -webkit-appearance: none;
 }

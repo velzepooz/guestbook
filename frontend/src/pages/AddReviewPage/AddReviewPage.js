@@ -29,18 +29,22 @@ export const AddReviewPage = () => {
     const preparedFormData = prepareFormData(form);
 
     if (isValidFormData(preparedFormData)) {
-      const isAdded = await addReview(preparedFormData);
+      try {
+        const isAdded = await addReview(preparedFormData);
 
-      if (isAdded) {
-        alert.show('Review added');
+        if (isAdded) {
+          alert.show('Review added');
 
-        form.reset();
+          form.reset();
 
-        setTimeout(() => {
-          history.push('/');
-        }, 3100);
-      } else {
-        alert.show('Error. Try again!');
+          setTimeout(() => {
+            history.push('/');
+          }, 3100);
+        } else {
+          alert.show('Error. Try again!');
+        }
+      } catch (e) {
+        alert.show('Server error. Try again, please!');
       }
     } else {
       setError(true);

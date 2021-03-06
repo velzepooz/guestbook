@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import './styles/App.scss';
 import { Header } from './components/Header/Header';
 import { Navigation } from './components/Navigation/Navigation';
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route path="/addReview" exact>
               <AddReviewPage />
+            </Route>
+            <Route path="*">
+              <Redirect to="/" />
             </Route>
           </Switch>
         </Router>

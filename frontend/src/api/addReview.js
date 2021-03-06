@@ -10,7 +10,9 @@ export const addReview = async(data) => {
   });
 
   if (response.ok) {
-    return true;
+    const dataFromServer = await response.json();
+
+    return dataFromServer.status;
   }
 
   throw new Error(`Server responded with ${response.status} error`);

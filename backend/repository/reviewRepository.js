@@ -29,7 +29,7 @@ class ReviewRepository {
 		try {
 			const reviews = await this.model.find().sort({date: -1});
 
-			return this.prepareReviewsToGiveaway(reviews);
+			return this.prepareReviews(reviews);
 		} catch (e) {
 			throw new ReviewRepositoryError(
 				'Failed to get reviews records',
@@ -38,7 +38,7 @@ class ReviewRepository {
 		}
 	}
 
-	prepareReviewsToGiveaway(records) {
+	prepareReviews(records) {
 		let preparedReviews = null;
 
 		if (Array.isArray(records)) {
